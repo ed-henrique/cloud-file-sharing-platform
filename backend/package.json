@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Eduardo Machado <edu.hen.fm@gmail.com>",
+  "contributors": [
+    {
+      "name": "Kaio Guilherme",
+      "url": "https://github.com/Kaioguilherme1"
+    }
+  ],
+  "license": "ISC"
+}
