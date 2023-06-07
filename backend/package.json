@@ -1,16 +1,24 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "The API enables seamless integration between the frontend and Google Cloud's storage service. It simplifies file uploads, downloads, and management tasks, allowing developers to leverage the scalability and reliability of Google Cloud Storage for their storage needs.",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
   "author": "Eduardo Machado <edu.hen.fm@gmail.com>",
   "contributors": [
-    {
-      "name": "Kaio Guilherme",
-      "url": "https://github.com/Kaioguilherme1"
-    }
+    "Kaio Guilherme (https://github.com/Kaioguilherme1)"
   ],
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ed-henrique/cloud-file-sharing-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ed-henrique/cloud-file-sharing-platform/issues"
+  },
+  "homepage": "https://github.com/ed-henrique/cloud-file-sharing-platform#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
