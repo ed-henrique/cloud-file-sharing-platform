@@ -57,20 +57,10 @@ flowchart TD
 
 ### Microsserviços
 
-#### Serviço de autenticação e autorização
-
-Responsável por autenticar usuários e fornecer autorização para realizar operações como
-upload, download e compartilhamento de arquivos.
-
 #### Serviço de gerenciamento de arquivos
 
 Responsável pela lógica central de gerenciamento de arquivos, incluindo armazenamento,
 recuperação, exclusão e compartilhamento de arquivos.
-
-#### Serviço de criptografia
-
-Este serviço pode ser responsável pela criptografia e descriptografia dos arquivos,
-garantindo a segurança dos dados durante o trânsito e repouso.
 
 ### Containers
 

@@ -1,9 +1,8 @@
-const express = require('express')
+import { Router } from "express";
+import filesRouter from "./files.js";
 
-const router = express.Router()
+const router = Router();
 
-router.get('/', async (req, res) => {
-    res.send('Inicio')
-})
+router.use("/files", filesRouter);
 
-module.exports = router
+export default router;
