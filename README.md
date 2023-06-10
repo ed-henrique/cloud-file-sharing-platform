@@ -1,57 +1,17 @@
-# Cloud File Sharing Platform
+# Cloud File Sharing Platform <!-- omit in toc -->
 
-Plataforma de compartilhamento de arquivos segura em nuvem
+Plataforma de compartilhamento de arquivos segura em nuvem.
 
-## Funcionamento da aplicação
+# Índice <!-- omit in toc -->
 
-### Envio de arquivos
-
-```mermaid
-flowchart TD
-    frontend[Aplicação web]
-    micro_auth[Microsserviço de autenticação e autorização]
-    micro_crypto[Microsserviço de criptografia]
-    micro_cloud[Microsserviço de gerenciamento de arquivos]
-    database[(Google Cloud Storage)]
-
-    frontend --> micro_auth
-    micro_auth --> ask[Autenticado?]
-    ask --> |Sim| ask2[Autorizado?]
-    ask --> |Não| problem[Usuário não está cadastrado no sistema]
-    ask2 --> |Sim| micro_cloud
-    ask2 --> |Não| problem2[Usuário não pode enviar arquivos]
-    micro_cloud --> micro_crypto
-    micro_crypto --> ask3[Criptografado?]
-    ask3 --> |Sim| ask4[Armazenado?]
-    ask3 --> |Não| problem3[Arquivo não está criptografado e não é seguro enviá-lo ao banco de dados]
-    ask4 --> |Sim| database
-    ask4 --> |Não| problem4[Houve um erro ao armazenar o arquivo]
-```
-
-### Download de arquivos
-
-```mermaid
-flowchart TD
-    frontend[Aplicação web]
-    micro_auth[Microsserviço de autenticação e autorização]
-    micro_crypto[Microsserviço de criptografia]
-    micro_cloud[Microsserviço de gerenciamento de arquivos]
-    database[(Google Cloud Storage)]
-
-    frontend --> micro_auth
-    micro_auth --> ask[Autenticado?]
-    ask --> |Sim| ask2[Autorizado?]
-    ask --> |Não| problem[Usuário não está cadastrado no sistema]
-    ask2 --> |Sim| micro_cloud
-    ask2 --> |Não| problem2[Usuário não pode fazer download de arquivos]
-    micro_cloud --> database
-    database --> ask3[Encontrou o arquivo?]
-    ask3 --> |Sim| micro_crypto
-    ask3 --> |Não| problem3[Houve um erro ao encontrar o arquivo]
-    micro_crypto --> ask4[Descriptografado?]
-    ask4 --> |Sim| answer[Retorna o arquivo ao usuário]
-    ask4 --> |Não| problem4[Erro na descriptografia do arquivo]
-```
+- [Estrutura](#estrutura)
+  - [Microsserviços](#microsserviços)
+    - [Serviço de gerenciamento de arquivos](#serviço-de-gerenciamento-de-arquivos)
+  - [Containers](#containers)
+  - [APIs](#apis)
+  - [Frontend](#frontend)
+  - [Armazenamento](#armazenamento)
+- [Possíveis melhorias](#possíveis-melhorias)
 
 ## Estrutura
 
@@ -79,10 +39,9 @@ login, fazer upload, download e compartilhar arquivos.
 
 ### Armazenamento
 
-Será utilizado um sistema de armazenamento em nuvem, como Amazon S3 ou Google Cloud
-Platform. Eles são escaláveis e seguros.
+O sistema de armazenamento de arquivos utilizado é o Google Cloud Storage (GCS). O GCS é um serviço de armazenamento de objetos que oferece alta disponibilidade e durabilidade. Os arquivos serão armazenados em buckets, que são contêineres para objetos. Os buckets podem ser criados e gerenciados através da API do GCS.
 
 ## Possíveis melhorias
 
-[ ] - Compactação dos arquivos para que eles consumam menos espaço
-[ ] - Uso de ferramentas para balanceamento de carga
+- [ ] Compactação dos arquivos para que eles consumam menos espaço
+- [ ] Uso de ferramentas para balanceamento de carga
