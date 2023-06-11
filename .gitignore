@@ -5,6 +5,9 @@
 # Editor-based HTTP Client requests
 /httpRequests
 
+# GCS specifics
+gcs/
+
 # IntelliJ specifics
 .idea/
 

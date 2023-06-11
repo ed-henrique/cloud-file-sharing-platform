@@ -4,6 +4,7 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
 
 # Índice <!-- omit in toc -->
 
+- [O Que Falta Fazer?](#o-que-falta-fazer)
 - [Estrutura](#estrutura)
   - [Microsserviços](#microsserviços)
     - [Serviço de gerenciamento de arquivos](#serviço-de-gerenciamento-de-arquivos)
@@ -11,7 +12,35 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
   - [APIs](#apis)
   - [Frontend](#frontend)
   - [Armazenamento](#armazenamento)
-- [Possíveis melhorias](#possíveis-melhorias)
+
+## O Que Falta Fazer?
+
+Tarefas marcadas com ⚡ podem ser implementadas bem rápido, e as marcadas com 🔥 são essenciais para a finalização do projeto.
+
+- [ ] 🔥 Implementar algumas rotas da API
+  - [ ] 🔥 Logout de usuário
+  - [ ] 🔥 ⚡ Download de arquivos
+    - [ ] Fazer download de mais de um arquivo ao mesmo tempo
+  - [ ] 🔥 ⚡ Upload de arquivos
+    - [ ] Fazer upload de mais de um arquivo ao mesmo tempo
+  - [ ] 🔥 ⚡ Remoção de arquivos
+    - [ ] Fazer remoção de mais de um arquivo ao mesmo tempo
+- [ ] 🔥 ⚡ Integrar backend com frontend
+- [ ] 🔥 Implementar frontend (SPA)
+  - [ ] 🔥 Fazer tela de login
+  - [ ] 🔥 Fazer tela de signup
+- [ ] 🔥 Dividir a aplicação em containers
+  - [ ] 🔥 Criar Dockerfile para cada microsserviço
+  - [ ] 🔥 Criar Dockerfile para o frontend
+  - [ ] 🔥 Criar Dockerfile para o banco de dados
+  - [ ] 🔥 Criar Dockerfile para a API
+- [ ] 🔥 ⚡ Criar arquivo docker-compose.yml
+- [ ] ⚡ Finalizar documentação
+- [ ] ⚡ (Opcional) Compactação dos arquivos
+- [ ] ⚡ (Opcional) Implementar testes manuais
+- [ ] ⚡ (Opcional) Implementar CI/CD
+- [ ] (Opcional) Implementar logs
+- [ ] (Opcional) Criar script para deploy da aplicação
 
 ## Estrutura
 
@@ -40,8 +69,3 @@ login, fazer upload, download e compartilhar arquivos.
 ### Armazenamento
 
 O sistema de armazenamento de arquivos utilizado é o Google Cloud Storage (GCS). O GCS é um serviço de armazenamento de objetos que oferece alta disponibilidade e durabilidade. Os arquivos serão armazenados em buckets, que são contêineres para objetos. Os buckets podem ser criados e gerenciados através da API do GCS.
-
-## Possíveis melhorias
-
-- [ ] Compactação dos arquivos para que eles consumam menos espaço
-- [ ] Uso de ferramentas para balanceamento de carga

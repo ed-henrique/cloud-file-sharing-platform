@@ -29,22 +29,6 @@ async function downloadFile() {
     const data = await fetch(`${server}/files/download`, {
         method: "GET",
     });
-
-    await fetch(data.url, data.options)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Failed to download file');
-          }
-          return response.blob();
-        })
-        .then(blob => {
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          link.click();
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
 }
 
 function dragHandler(e) {
