@@ -55,7 +55,32 @@ CREATE DATABASE <database_name>;
 gsutil mb -p <project_id> -c <storage_class> -l <region> gs://<bucket_name>
 ```
 
-4. Create a `.env` based on the `.env.example` file in the `backend` directory of the project and add the following:
+4. Generate a `.json` key file with your Google Cloud Storage service account credentials
+
+- Go to the [Google Cloud Console](https://console.cloud.google.com/)
+- Select your project
+- Go to the [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) page
+- Select the service account you want to create a key for
+  - If you need to create a service account, click **Create Service Account**
+  - Enter a name and description for the service account
+  - Give it permission to read and write from the bucket you created
+  - Click **Create**
+- Click **Keys**
+- Click **Add Key**, then select **Create new key**
+- Click **Create**
+- The private key file is generated and downloaded to your machine
+- Move the downloaded file to the `backend` directory of the project
+- Change the code inside the `backend/routes/files.js` file to use the name of your key file
+
+```js
+const storage = new Storage({
+  keyFilename: 'path/to/file.json',
+  projectId: process.env.GCS_PROJECT_ID,
+});
+```
+
+
+1. Create a `.env` based on the `.env.example` file in the `backend` directory of the project and add the following:
 
 ```bash
 API_PORT=
