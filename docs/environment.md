@@ -63,7 +63,7 @@ gsutil mb -p <project_id> -c <storage_class> -l <region> gs://<bucket_name>
 - Select the service account you want to create a key for
   - If you need to create a service account, click **Create Service Account**
   - Enter a name and description for the service account
-  - Give it permission to read and write from the bucket you created
+  - Give admin permission to the bucket you created
   - Click **Create**
 - Click **Keys**
 - Click **Add Key**, then select **Create new key**

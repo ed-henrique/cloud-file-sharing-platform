@@ -19,11 +19,11 @@ Tarefas marcadas com ⚡ podem ser implementadas bem rápido, e as marcadas com 
 
 - [ ] 🔥 Implementar algumas rotas da API
   - [ ] 🔥 Logout de usuário
-  - [ ] 🔥 ⚡ Download de arquivos
+  - [x] 🔥 ⚡ Download de arquivos
     - [ ] Fazer download de mais de um arquivo ao mesmo tempo
-  - [ ] 🔥 ⚡ Upload de arquivos
+  - [x] 🔥 ⚡ Upload de arquivos
     - [ ] Fazer upload de mais de um arquivo ao mesmo tempo
-  - [ ] 🔥 ⚡ Remoção de arquivos
+  - [x] 🔥 ⚡ Remoção de arquivos
     - [ ] Fazer remoção de mais de um arquivo ao mesmo tempo
 - [ ] 🔥 ⚡ Integrar backend com frontend
 - [ ] 🔥 Implementar frontend (SPA)
@@ -36,7 +36,7 @@ Tarefas marcadas com ⚡ podem ser implementadas bem rápido, e as marcadas com 
   - [ ] 🔥 Criar Dockerfile para a API
 - [ ] 🔥 ⚡ Criar arquivo docker-compose.yml
 - [ ] ⚡ Finalizar documentação
-- [ ] ⚡ (Opcional) Compactação dos arquivos
+- [x] ⚡ (Opcional) Compactação dos arquivos
 - [ ] ⚡ (Opcional) Implementar testes manuais
 - [ ] ⚡ (Opcional) Implementar CI/CD
 - [ ] (Opcional) Implementar logs

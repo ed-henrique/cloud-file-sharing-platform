@@ -9,6 +9,7 @@ import { readFileSync } from "fs";
 const port = process.env.API_PORT;
 
 const app = express();
+app.disable('x-powered-by');
 app.use(express.json());
 app.use(cors());
 

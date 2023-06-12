@@ -22,9 +22,13 @@ router.post("/login", async (req, res) => {
 				.send({ error: 1, message: "Usuário ou senha incorretos" });
 		}
 
-		const token = jwt.sign({ username }, process.env.JWT_SECRET, {
-			expiresIn: "1h",
-		});
+		const token = jwt.sign(
+			{ username, signedAt: Math.floor(Date.now() / 1000) },
+			process.env.JWT_SECRET,
+			{
+				expiresIn: "1h",
+			},
+		);
 
 		return res.send({ error: 0, token });
 	} catch (error) {
@@ -63,9 +67,13 @@ router.post("/signup", async (req, res) => {
 
 		await user.create({ username, password: encryptedPassword });
 
-		const token = jwt.sign({ username }, process.env.JWT_SECRET, {
-			expiresIn: "1h",
-		});
+		const token = jwt.sign(
+			{ username, signedAt: Math.floor(Date.now() / 1000) },
+			process.env.JWT_SECRET,
+			{
+				expiresIn: "1h",
+			},
+		);
 
 		return res.send({ error: 0, token });
 	} catch (error) {
@@ -77,6 +85,17 @@ router.post("/signup", async (req, res) => {
 	}
 });
 
-router.post("/logout", async (req, res) => {});
+router.post("/logout", async (req, res) => {
+	try {
+		const { authorization } = req.headers;
+
+		jwt.verify(authorization, process.env.JWT_SECRET);
+
+		return res.send({ error: 0, message: "Logged out successfully" });
+	} catch (error) {
+		console.error(error);
+		return res.send({ error: 1, message: "Error logging out" });
+	}
+});
 
 export default router;
