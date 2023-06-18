@@ -95,6 +95,7 @@ POSTGRES_PASSWORD=
 GCS_BUCKET_NAME=
 GCS_PROJECT_ID=
 ```
+
 5. Run the backend
 
 ```bash

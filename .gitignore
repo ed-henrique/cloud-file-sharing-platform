@@ -6,7 +6,7 @@
 /httpRequests
 
 # GCS specifics
-gcs/
+gcs.json
 
 # IntelliJ specifics
 .idea/
@@ -106,7 +106,7 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
+# Comment in the public line if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
@@ -141,3 +141,40 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Windows shortcuts
+*.lnk
+
+# DEVELOPMENT_ONLY
+/dist
+/build
+/tmp
+/temp
+
+# Assets
+# **/static/vendor
+
+# HTML files
+/html-starter
+/html-demo
+/html-starter-demo
+
+# Random Testing
+/random_testing

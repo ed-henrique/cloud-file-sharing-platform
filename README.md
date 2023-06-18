@@ -2,7 +2,7 @@
 
 Plataforma de compartilhamento de arquivos segura em nuvem.
 
-# Índice <!-- omit in toc -->
+## Índice <!-- omit in toc -->
 
 - [O Que Falta Fazer?](#o-que-falta-fazer)
 - [Estrutura](#estrutura)
@@ -18,17 +18,16 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
 Tarefas marcadas com ⚡ podem ser implementadas bem rápido, e as marcadas com 🔥 são essenciais para a finalização do projeto.
 
 - [ ] 🔥 Implementar algumas rotas da API
-  - [ ] 🔥 Logout de usuário
   - [x] 🔥 ⚡ Download de arquivos
     - [ ] Fazer download de mais de um arquivo ao mesmo tempo
   - [x] 🔥 ⚡ Upload de arquivos
     - [ ] Fazer upload de mais de um arquivo ao mesmo tempo
   - [x] 🔥 ⚡ Remoção de arquivos
     - [ ] Fazer remoção de mais de um arquivo ao mesmo tempo
-- [ ] 🔥 ⚡ Integrar backend com frontend
-- [ ] 🔥 Implementar frontend (SPA)
-  - [ ] 🔥 Fazer tela de login
-  - [ ] 🔥 Fazer tela de signup
+- [x] 🔥 ⚡ Integrar backend com frontend
+- [x] 🔥 Implementar frontend
+  - [x] 🔥 Fazer tela de login
+  - [x] 🔥 Fazer tela de signup
 - [ ] 🔥 Dividir a aplicação em containers
   - [ ] 🔥 Criar Dockerfile para cada microsserviço
   - [ ] 🔥 Criar Dockerfile para o frontend
@@ -37,8 +36,6 @@ Tarefas marcadas com ⚡ podem ser implementadas bem rápido, e as marcadas com 
 - [ ] 🔥 ⚡ Criar arquivo docker-compose.yml
 - [ ] ⚡ Finalizar documentação
 - [x] ⚡ (Opcional) Compactação dos arquivos
-- [ ] ⚡ (Opcional) Implementar testes manuais
-- [ ] ⚡ (Opcional) Implementar CI/CD
 - [ ] (Opcional) Implementar logs
 - [ ] (Opcional) Criar script para deploy da aplicação
 
@@ -65,6 +62,8 @@ API RESTful para interagir com o frontend.
 
 O frontend será uma aplicação web, contida em um container, onde o usuário poderá fazer
 login, fazer upload, download e compartilhar arquivos.
+
+Foi utilizado o template [Sneat](https://themeselection.com/products/sneat-bootstrap-html-admin-template/) da [ThemeSelection](https://themeselection.com) para agilizar o desenvolvimento do frontend.
 
 ### Armazenamento
 

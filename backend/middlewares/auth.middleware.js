@@ -16,7 +16,7 @@ async function auth(req, res, next) {
 
 		const currentTimestamp = Math.floor(Date.now() / 1000);
 		if (decoded.exp < currentTimestamp) {
-			return res.redirect("/logout");
+			return res.status(401).send({ error: 1, message: "Token expirado" });
 		}
 
 		req.username = decoded.username;
@@ -24,7 +24,7 @@ async function auth(req, res, next) {
 		return next();
 	} catch (error) {
 		console.error(error);
-		return res.status(403).send({ error: 1, message: "Token inválido" });
+		return res.status(401).send({ error: 1, message: "Token inválido" });
 	}
 }
 

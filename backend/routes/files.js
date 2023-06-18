@@ -6,7 +6,7 @@ import FileController from "../controllers/file.controller.js";
 const MB = 1024 * 1024;
 
 const router = Router();
-// router.use(auth);
+router.use(auth);
 
 const upload = multer({
 	storage: multer.memoryStorage(),
@@ -21,7 +21,9 @@ router.get("/", async (req, res) => {
 	try {
 		const username = req.username;
 
-		const fileNames = await fileController.listFiles(username);
+		let fileNames = await fileController.listFiles(username);
+		fileNames.shift();
+		fileNames = fileNames.map((fileName) => fileName.slice(username.length + 1));
 
 		return res.status(200).send({ error: 0, fileNames });
 	} catch (error) {
@@ -33,7 +35,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
-router.get("/download", async (req, res) => {
+router.post("/download", async (req, res) => {
 	try {
 		const { fileName } = req.body;
 		const username = req.username;

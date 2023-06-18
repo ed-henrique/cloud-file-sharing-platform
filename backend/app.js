@@ -23,7 +23,7 @@ app.use(routes);
 // Criação do servidor HTTPS
 // const httpsServer = createServer(credentials, app);
 
-await sequelize.sync()
+await sequelize.sync();
 
 // Inicia o servidor
 app.listen(port, () => {
