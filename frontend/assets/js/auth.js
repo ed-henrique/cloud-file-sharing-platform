@@ -1,6 +1,10 @@
 // Constants
 
-const server = "http://localhost:3000";
+const protocol = process.env.API_PROTOCOL || "http";
+const ip = process.env.API_IP || "localhost";
+const port = process.env.API_PORT || "3000";
+
+const server = `${protocol}://${ip}:${port}`;
 const currentPage = window.location.pathname.split("/").pop();
 
 // Functions
