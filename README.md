@@ -4,6 +4,7 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
 
 ## Índice <!-- omit in toc -->
 
+- [Deploy](#deploy)
 - [O Que Falta Fazer?](#o-que-falta-fazer)
 - [Estrutura](#estrutura)
   - [Microsserviços](#microsserviços)
@@ -12,6 +13,9 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
   - [APIs](#apis)
   - [Frontend](#frontend)
   - [Armazenamento](#armazenamento)
+
+## Deploy
+   Via docker-compose: [Clique aqui](docs/docker-deploy.md)
 
 ## O Que Falta Fazer?
 
