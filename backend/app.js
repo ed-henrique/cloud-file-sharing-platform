@@ -11,7 +11,7 @@ const port = process.env.API_PORT;
 const app = express();
 app.disable('x-powered-by');
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 // Configuração do certificado autoassinado
 const privateKey = readFileSync(".certs/private.key", "utf8");
@@ -21,11 +21,11 @@ const credentials = { key: privateKey, cert: certificate };
 app.use(routes);
 
 // Criação do servidor HTTPS
-// const httpsServer = createServer(credentials, app);
+const httpsServer = createServer(credentials, app);
 
 await sequelize.sync();
 
 // Inicia o servidor
-app.listen(port, () => {
+httpsServer.listen(port, () => {
 	console.log(`Servidor HTTPS executando na porta ${port}`);
 });
