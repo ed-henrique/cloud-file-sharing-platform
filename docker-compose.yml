@@ -1,5 +1,18 @@
 version: '3'
 services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: CFSP-DB
+      POSTGRES_USER: CFSP-USER
+      POSTGRES_PASSWORD: CFSP-PASSWORD # Password for PostgreSQL
+    networks:
+      - cloud-network
+    ports:
+      - 5000:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
   backend:
     build:
       context: ./backend
@@ -19,11 +32,11 @@ services:
       GCS_BUCKET_NAME: ${GCS_BUCKET_NAME}
       GCS_PROJECT_ID: ${GCS_PROJECT_ID}
     depends_on:
-      - postgres
+        - postgres
     networks:
       - cloud-network
     volumes:
-      - backend-data:/app/data
+      - backend-data:/app/
 
   nginx:
     build:
@@ -34,25 +47,14 @@ services:
       API_IP: backend
       API_PORT: 3000
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     ports:
       - 80:80
       - 443:443
     networks:
       - cloud-network
 
-  postgres:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: CFSP-DB
-      POSTGRES_USER: CFSP-USER
-      POSTGRES_PASSWORD: CFSP-PASSWORD # Password for PostgreSQL
-    networks:
-      - cloud-network
-    ports:
-      - 5000:5432
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
 
 networks:
   cloud-network:

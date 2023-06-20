@@ -1,4 +1,4 @@
-import "./dotenv.js";
+//import "./dotenv.js"; // Importa as variáveis de ambiente caso n ultilize o docker
 import cors from "cors";
 import express from "express";
 import routes from "./routes/index.js";
