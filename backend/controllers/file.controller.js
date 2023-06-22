@@ -17,7 +17,7 @@ class FileController {
 		const fileNames = files.map((file) => file.name);
 
 		if (fileNames.length === 0) {
-			await this.bucket(bucketName).file(`${username}/`).save();
+			await this.bucket.file(`${username}/`).save();
 		}
 
 		return fileNames;

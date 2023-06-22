@@ -11,7 +11,7 @@ const port = process.env.API_PORT;
 const app = express();
 app.disable('x-powered-by');
 app.use(express.json());
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: 'https://localhost' }));
 
 // Configuração do certificado autoassinado
 const privateKey = readFileSync(".certs/private.key", "utf8");

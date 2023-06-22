@@ -1,11 +1,10 @@
 version: '3'
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:15.3-alpine
     environment:
-      POSTGRES_DB: CFSP-DB
-      POSTGRES_USER: CFSP-USER
-      POSTGRES_PASSWORD: CFSP-PASSWORD # Password for PostgreSQL
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Password for PostgreSQL
     networks:
       - cloud-network
     # descomente se quiser acessar o banco de dados externamente
@@ -13,27 +12,31 @@ services:
     #  - 5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-U", "${POSTGRES_USER}" ]
+      interval: 20s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
     environment:
       # configuration for backend
-      API_PORT: 3000
+      API_PORT: ${API_PORT}
       JWT_SECRET: ${JWT_SECRET}
       # configuration for postgres
-      POSTGRES_PORT: 5432
-      POSTGRES_HOST: postgres
-      POSTGRES_DB_NAME: CFSP-DB
-      POSTGRES_USER: CFSP-USER
-      POSTGRES_PASSWORD: CFSP-PASSWORD # Password for PostgreSQL
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Password for PostgreSQL
 
       # configuration for gcs
       GCS_BUCKET_NAME: ${GCS_BUCKET_NAME}
       GCS_PROJECT_ID: ${GCS_PROJECT_ID}
     depends_on:
-        - postgres
+      postgres:
+        condition: service_healthy
     ports:
       - 3000:3000
     networks:
@@ -44,10 +47,9 @@ services:
   nginx:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
     environment:
       API_PROTOCOL: https
-      API_IP: ${public ip api}
+      API_IP: localhost
       API_PORT: 3000
     depends_on:
       - backend
@@ -57,9 +59,9 @@ services:
     networks:
       - cloud-network
 
-
 networks:
   cloud-network:
+
 
 volumes:
   backend-data:
