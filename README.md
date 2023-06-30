@@ -5,7 +5,6 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
 ## Índice <!-- omit in toc -->
 
 - [Deploy](#deploy)
-- [O Que Falta Fazer?](#o-que-falta-fazer)
 - [Estrutura](#estrutura)
   - [Microsserviços](#microsserviços)
     - [Serviço de gerenciamento de arquivos](#serviço-de-gerenciamento-de-arquivos)
@@ -15,35 +14,12 @@ Plataforma de compartilhamento de arquivos segura em nuvem.
   - [Armazenamento](#armazenamento)
 
 ## Deploy
-   Via docker-compose: [Clique aqui](docs/docker-deploy.md)
 
-## O Que Falta Fazer?
-
-Tarefas marcadas com ⚡ podem ser implementadas bem rápido, e as marcadas com 🔥 são essenciais para a finalização do projeto.
-
-- [ ] 🔥 Implementar algumas rotas da API
-  - [x] 🔥 ⚡ Download de arquivos
-    - [ ] Fazer download de mais de um arquivo ao mesmo tempo
-  - [x] 🔥 ⚡ Upload de arquivos
-    - [ ] Fazer upload de mais de um arquivo ao mesmo tempo
-  - [x] 🔥 ⚡ Remoção de arquivos
-    - [ ] Fazer remoção de mais de um arquivo ao mesmo tempo
-- [x] 🔥 ⚡ Integrar backend com frontend
-- [x] 🔥 Implementar frontend
-  - [x] 🔥 Fazer tela de login
-  - [x] 🔥 Fazer tela de signup
-- [ ] 🔥 Dividir a aplicação em containers
-  - [ ] 🔥 Criar Dockerfile para cada microsserviço
-  - [ ] 🔥 Criar Dockerfile para o frontend
-  - [ ] 🔥 Criar Dockerfile para o banco de dados
-  - [ ] 🔥 Criar Dockerfile para a API
-- [ ] 🔥 ⚡ Criar arquivo docker-compose.yml
-- [ ] ⚡ Finalizar documentação
-- [x] ⚡ (Opcional) Compactação dos arquivos
-- [ ] (Opcional) Implementar logs
-- [ ] (Opcional) Criar script para deploy da aplicação
+[Clique aqui](./docs/deploy.md).
 
 ## Estrutura
+
+Para entender melhor a estrutura, há um diagrama disponível para as duas funções principais dele [aqui](./docs/backend.md).
 
 ### Microsserviços
 

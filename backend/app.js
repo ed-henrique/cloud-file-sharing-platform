@@ -6,12 +6,10 @@ import sequelize from "./config/sequelize.js";
 import { createServer } from "https";
 import { readFileSync } from "fs";
 
-const port = process.env.API_PORT;
-
 const app = express();
 app.disable('x-powered-by');
 app.use(express.json());
-app.use(cors({ origin: 'https://localhost' }));
+app.use(cors({ origin: '*' }));
 
 // Configuração do certificado autoassinado
 const privateKey = readFileSync(".certs/private.key", "utf8");
@@ -26,6 +24,6 @@ const httpsServer = createServer(credentials, app);
 await sequelize.sync();
 
 // Inicia o servidor
-httpsServer.listen(port, () => {
-	console.log(`Servidor HTTPS executando na porta ${port}`);
+httpsServer.listen(3000, () => {
+	console.log(`Servidor HTTPS executando na porta 3000`);
 });

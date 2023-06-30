@@ -5,9 +5,9 @@ COPY ./nginx_conf/ /etc/nginx/
 
 WORKDIR /usr/share/nginx/html/
 
-EXPOSE 80 443
+EXPOSE 443
 
 LABEL maintainer="Kaio Guilherme <https://github.com/Kaioguilherme1>"
 LABEL maintainer="Eduardo Henrique <https://github.com/ed-henrique>"
 
-CMD ["/bin/bash", "-c", "sh init.sh & nginx -g 'daemon off;'"]
+CMD ["nginx", "-g", "daemon off;"]

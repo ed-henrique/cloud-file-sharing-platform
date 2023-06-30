@@ -23,7 +23,6 @@ services:
       context: ./backend
     environment:
       # configuration for backend
-      API_PORT: ${API_PORT}
       JWT_SECRET: ${JWT_SECRET}
       # configuration for postgres
       POSTGRES_PORT: ${POSTGRES_PORT}
@@ -47,14 +46,9 @@ services:
   nginx:
     build:
       context: ./frontend
-    environment:
-      API_PROTOCOL: https
-      API_IP: localhost
-      API_PORT: 3000
     depends_on:
       - backend
     ports:
-      - 80:80
       - 443:443
     networks:
       - cloud-network

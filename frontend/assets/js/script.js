@@ -1,12 +1,6 @@
-import { api } from "./config.js";
-
 // Constants
 
-const protocol = api.API_PROTOCOL || "http";
-const ip = api.API_IP || "localhost";
-const port = api.API_PORT || "3000";
-
-const server = `${protocol}://${ip}:${port}`;
+const server = `https://localhost:3000`;
 const currentPage = window.location.pathname.split("/").pop();
 
 // Functions

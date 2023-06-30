@@ -8,7 +8,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install pm2 -g && npm install
 
 COPY . .
-COPY ../gcs.json /backend/gcs
+COPY ./gcs.json /app/backend/gcs
 
 EXPOSE 3000
 
